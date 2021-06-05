@@ -1,17 +1,25 @@
 import { Component } from '@angular/core';
 
+import { DataService } from '../data.service'
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  users: string[];
   name: string = 'Sakura';
   age: number = 19;
+  
+  users: string[];
+  posts = [];
 
-  constructor(){
-    this.users = ['Minato Namikaze', 'Naruto Uzumaki', 'Nagato Uzumaki']
+  constructor(private dataService: DataService){
+    this.users = ['Minato Namikaze', 'Naruto Uzumaki', 'Nagato Uzumaki'];
+    //dataService es un arreglo entonces lo recorremos con una funcion
+    this.dataService.getData().subscribe(dataService => {
+      this.posts = dataService
+    })
   }
 
   addUser(newUser){
@@ -28,4 +36,6 @@ export class AppComponent {
       }
     }
   }
+
+  
 }

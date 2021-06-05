@@ -1,29 +1,11 @@
-<form (submit) = "addUser(newUser)">
-  <input type="text" #newUser>
-  <button>
-    Send User
-  </button>
-</form>
-
 <ul>
-  <li *ngFor = 'let user of users'>
-    {{user}}
-    <button (click) = "deleteUser(user)">
-      Click me to Delete User
-    </button>
+  <li>
+    <a routerLink = "/">Go to Home</a>
+  </li>
+
+  <li>
+    <a routerLink="/about">Go to About</a>
   </li>
 </ul>
 
-<div>
-  <form>
-    <input type="text" name="name" [(ngModel)] = "name">
-    <input type="text" name="age" [(ngModel)] = "age">
-  </form>
-
-  name: {{ name }} 
-  <br>
-  age: {{ age }}
-</div>
-
-
-
+<router-outlet></router-outlet>
