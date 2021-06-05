@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   users: string[];
+  name: string = 'Sakura';
+  age: number = 19;
 
   constructor(){
     this.users = ['Minato Namikaze', 'Naruto Uzumaki', 'Nagato Uzumaki']
